@@ -2,5 +2,8 @@
     <string name="app_name">GUIDOMIA</string>
     <string name="main_activity_header_title">Tacoma 2021</string>
     <string name="main_activity_header_subtitle">Get your\'s now</string>
+    <string name="main_activity_filters_title">Filters</string>
+    <string name="main_activity_filters_make_hint">Any make</string>
+    <string name="main_activity_filters_model_hint">Any model</string>
 
 </resources>

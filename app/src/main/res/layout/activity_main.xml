@@ -10,15 +10,21 @@
             type="com.cnexia.technicaltest.view.data.HeaderDataClass" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
         tools:context=".view.MainActivity">
 
         <include
+            android:id="@+id/header"
             layout="@layout/header_layout"
             app:headerItem="@{headerItem}" />
 
+        <include
+            android:id="@+id/filters"
+            layout="@layout/filters_layout" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
 </layout>
