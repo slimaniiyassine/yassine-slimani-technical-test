@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="recyclerViewItem"
+            type="com.cnexia.technicaltest.view.data.RecyclerViewItem" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/light_gray">
+
+        <ImageView
+            android:id="@+id/recyclerViewItemIV"
+            android:layout_width="130dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:setImageToImageViewFromDrawableWithName="@{recyclerViewItem.image}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/alpine_roadster" />
+
+        <TextView
+            android:id="@+id/recyclerViewItemTitleTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:text="@{recyclerViewItem.title}"
+            android:textColor="@color/dark_gray"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/recyclerViewItemIV"
+            app:layout_constraintTop_toTopOf="@+id/recyclerViewItemIV"
+            tools:text="@string/main_activity_recycler_view_item_title" />
+
+        <TextView
+            android:id="@+id/recyclerViewItemPriceTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@{recyclerViewItem.price}"
+            android:textColor="@color/dark_gray"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/recyclerViewItemTitleTV"
+            app:layout_constraintTop_toBottomOf="@+id/recyclerViewItemTitleTV"
+            tools:text="@string/main_activity_recycler_view_item_price" />
+
+        <RatingBar
+            android:id="@+id/recyclerViewItemRatingRB"
+            style="?android:attr/ratingBarStyleIndicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:isIndicator="false"
+            android:numStars="@{recyclerViewItem.numberOfStarts}"
+            android:progressBackgroundTint="@color/orange"
+            android:progressTint="@color/orange"
+            android:rating="@{recyclerViewItem.numberOfStarts}"
+            android:scaleX=".5"
+            android:scaleY=".5"
+            android:transformPivotX="0dp"
+            android:transformPivotY="0dp"
+            app:layout_constraintStart_toStartOf="@+id/recyclerViewItemPriceTV"
+            app:layout_constraintTop_toBottomOf="@+id/recyclerViewItemPriceTV"
+            tools:numStars="5"
+            tools:rating="5" />
+
+        <TextView
+            android:id="@+id/recyclerViewItemProsTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:orientation="vertical"
+            android:setViewVisibility="@{recyclerViewItem.pros.size() != 0}"
+            android:text="@string/main_activity_recycler_view_item_pros_title"
+            android:textColor="@color/dark_gray"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/recyclerViewItemIV"
+            app:layout_constraintTop_toBottomOf="@+id/recyclerViewItemRatingRB"
+            tools:text="@string/main_activity_recycler_view_item_pros_title" />
+
+        <LinearLayout
+            android:id="@+id/recyclerViewItemProsLL"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inflateData="@{recyclerViewItem.pros}"
+            android:orientation="vertical"
+            android:setViewVisibility="@{recyclerViewItem.pros.size() != 0}"
+            app:layout_constraintStart_toStartOf="@+id/recyclerViewItemProsTitle"
+            app:layout_constraintTop_toBottomOf="@+id/recyclerViewItemProsTitle" />
+
+        <TextView
+            android:id="@+id/recyclerViewItemConsTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:orientation="vertical"
+            android:setViewVisibility="@{recyclerViewItem.cons.size() != 0}"
+            android:text="@string/main_activity_recycler_view_item_cons_title"
+            android:textColor="@color/dark_gray"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/recyclerViewItemIV"
+            app:layout_constraintTop_toBottomOf="@+id/recyclerViewItemProsLL"
+            tools:text="@string/main_activity_recycler_view_item_cons_title" />
+
+        <LinearLayout
+            android:id="@+id/recyclerViewItemConsLL"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:inflateData="@{recyclerViewItem.cons}"
+            android:orientation="vertical"
+            android:setViewVisibility="@{recyclerViewItem.cons.size() != 0}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/recyclerViewItemConsTitle"
+            app:layout_constraintTop_toBottomOf="@+id/recyclerViewItemConsTitle" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

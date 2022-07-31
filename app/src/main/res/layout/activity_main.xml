@@ -8,6 +8,10 @@
         <variable
             name="headerItem"
             type="com.cnexia.technicaltest.view.data.HeaderDataClass" />
+
+        <variable
+            name="recyclerViewItem"
+            type="com.cnexia.technicaltest.view.data.RecyclerViewItem" />
     </data>
 
     <androidx.appcompat.widget.LinearLayoutCompat
@@ -17,13 +21,19 @@
         tools:context=".view.MainActivity">
 
         <include
-            android:id="@+id/header"
-            layout="@layout/header_layout"
-            app:headerItem="@{headerItem}" />
+            android:id="@+id/recyclerViewItemInclude"
+            layout="@layout/car_recycler_view_item"
+            app:recyclerViewItem="@{recyclerViewItem}"
+            />
 
-        <include
-            android:id="@+id/filters"
-            layout="@layout/filters_layout" />
+<!--        <include-->
+<!--            android:id="@+id/header"-->
+<!--            layout="@layout/header_layout"-->
+<!--            app:headerItem="@{headerItem}" />-->
+
+<!--        <include-->
+<!--            android:id="@+id/filters"-->
+<!--            layout="@layout/filters_layout" />-->
 
 
     </androidx.appcompat.widget.LinearLayoutCompat>

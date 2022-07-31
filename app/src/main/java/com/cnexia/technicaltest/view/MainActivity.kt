@@ -5,6 +5,7 @@ import android.view.Menu
 import androidx.lifecycle.ViewModelProvider
 import com.cnexia.technicaltest.databinding.ActivityMainBinding
 import com.cnexia.technicaltest.view.data.HeaderDataClass
+import com.cnexia.technicaltest.view.data.RecyclerViewItem
 import dagger.android.support.DaggerAppCompatActivity
 import javax.inject.Inject
 
@@ -24,6 +25,7 @@ class MainActivity : DaggerAppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         binding.headerItem = getHeaderView()
+        binding.recyclerViewItem = getRecyclerViewItem()
         setContentView(binding.root)
     }
 
@@ -37,6 +39,23 @@ class MainActivity : DaggerAppCompatActivity() {
             "tacoma",
             "Tacoma 2021",
             "Get your's now"
+        )
+    }
+
+    private fun getRecyclerViewItem(): RecyclerViewItem {
+        return RecyclerViewItem(
+            "Alpine roadster",
+            "120K",
+            "alpine_roadster",
+            5,
+//            listOf(
+//                "4 wheel drive",
+//                "Disk brake",
+//                "Good sound system"
+//            ),
+//            listOf("Bad direction")
+            emptyList(),
+            emptyList()
         )
     }
 }
