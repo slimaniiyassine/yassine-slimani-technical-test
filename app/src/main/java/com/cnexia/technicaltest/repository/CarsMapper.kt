@@ -14,12 +14,13 @@ class CarsMapper @Inject constructor() {
         cars.forEach {
             result.add(
                 RecyclerViewItem(
-                    it.brand,
+                    it.model,
                     it.customerPrice.toString().addKToPrice(),
-                    getImage(it.brandModel),
+                    getImage(it.model),
                     it.numberOfStarts,
                     it.prosList.filter { pros -> pros.isNotEmpty() },
-                    it.consList.filter { cons -> cons.isNotEmpty() }
+                    it.consList.filter { cons -> cons.isNotEmpty() },
+                    it.make
                 )
             )
         }

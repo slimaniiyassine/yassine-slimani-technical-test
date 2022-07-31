@@ -37,6 +37,7 @@ class CarsMapperTest {
         Assert.assertEquals(result[0].image, "")
         Assert.assertEquals(result[0].numberOfStarts, 0)
         Assert.assertEquals(result[0].price, "123K")
+        Assert.assertEquals(result[0].makeTitle, "brand 0")
     }
 
     @Test

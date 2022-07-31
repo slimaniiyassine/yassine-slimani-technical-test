@@ -27,6 +27,7 @@ fun setImageToImageViewFromDrawableWithName(imageView: ImageView, imageName: Str
 
 @BindingAdapter("android:inflateData")
 fun inflateData(layout: LinearLayout, data: List<String>) {
+    layout.removeAllViews()
     val inflater = LayoutInflater.from(layout.context)
     for (entry in data) {
             val myItem = inflater.inflate(R.layout.pros_cons_item, layout, false)
@@ -47,7 +48,7 @@ fun setViewVisibility(view: View, isVisible: Boolean) {
 
 @BindingAdapter("android:setCarsRecyclerViewData", "android:recyclerViewAdapter")
 fun setCarsRecyclerViewData(view: RecyclerView, listCars: List<RecyclerViewItem>?, recyclerViewAdapter: CarsAdapter?) {
-    if(listCars!= null && listCars.isNotEmpty() && recyclerViewAdapter != null) {
+    if(listCars!= null && recyclerViewAdapter != null) {
         recyclerViewAdapter.setLocationList(listCars)
         view.addItemDecoration(SimpleDividerItemDecoration(view.context, R.drawable.line_divider))
 

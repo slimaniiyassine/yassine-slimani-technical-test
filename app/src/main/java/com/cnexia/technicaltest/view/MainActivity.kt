@@ -1,6 +1,8 @@
 package com.cnexia.technicaltest.view
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.Menu
 import androidx.lifecycle.ViewModelProvider
 import com.cnexia.technicaltest.databinding.ActivityMainBinding
@@ -28,6 +30,33 @@ class MainActivity : DaggerAppCompatActivity() {
         binding.lifecycleOwner = this
         setContentView(binding.root)
         mainActivityViewModel.getData()
+        addFilterListeners()
+    }
+
+    private fun addFilterListeners() {
+        binding.filters.filterLayoutMakeET.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+                mainActivityViewModel.filterCarsByMake(s.toString())
+            }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+            }
+        })
+
+        binding.filters.filterLayoutModelET.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+                mainActivityViewModel.filterCarsByModel(s.toString())
+            }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+            }
+        })
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

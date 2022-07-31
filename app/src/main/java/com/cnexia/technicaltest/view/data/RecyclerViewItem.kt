@@ -7,5 +7,6 @@ data class RecyclerViewItem(
     val image: String,
     val numberOfStarts: Int,
     val pros: List<String>,
-    val cons: List<String>
+    val cons: List<String>,
+    val makeTitle: String
 )
