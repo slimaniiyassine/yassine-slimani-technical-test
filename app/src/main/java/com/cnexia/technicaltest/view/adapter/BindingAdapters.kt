@@ -8,6 +8,8 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.cnexia.technicaltest.R
+import com.cnexia.technicaltest.utils.SimpleDividerItemDecoration
 import com.cnexia.technicaltest.view.adapter.CarsAdapter
 import com.cnexia.technicaltest.view.data.RecyclerViewItem
 import com.squareup.picasso.Picasso
@@ -50,6 +52,8 @@ fun setViewVisibility(view: View, isVisible: Boolean) {
 fun setCarsRecyclerViewData(view: RecyclerView, listCars: List<RecyclerViewItem>?, recyclerViewAdapter: CarsAdapter?) {
     if(listCars!= null && listCars.isNotEmpty() && recyclerViewAdapter != null) {
         recyclerViewAdapter.setLocationList(listCars)
+        view.addItemDecoration(SimpleDividerItemDecoration(view.context, R.drawable.line_divider));
+
         if (view.adapter == null) {
             view.adapter = recyclerViewAdapter
         }
