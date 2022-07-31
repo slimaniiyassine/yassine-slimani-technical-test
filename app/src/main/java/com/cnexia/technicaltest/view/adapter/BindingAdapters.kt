@@ -29,11 +29,9 @@ fun setImageToImageViewFromDrawableWithName(imageView: ImageView, imageName: Str
 fun inflateData(layout: LinearLayout, data: List<String>) {
     val inflater = LayoutInflater.from(layout.context)
     for (entry in data) {
-        if(entry.isNotEmpty()) {
             val myItem = inflater.inflate(R.layout.pros_cons_item, layout, false)
             myItem.prosConsTV.text = entry
             layout.addView(myItem)
-        }
     }
 }
 

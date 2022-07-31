@@ -18,8 +18,8 @@ class CarsMapper @Inject constructor() {
                     it.customerPrice.toString().addKToPrice(),
                     getImage(it.brandModel),
                     it.numberOfStarts,
-                    it.prosList,
-                    it.consList
+                    it.prosList.filter { pros -> pros.isNotEmpty() },
+                    it.consList.filter { cons -> cons.isNotEmpty() }
                 )
             )
         }
