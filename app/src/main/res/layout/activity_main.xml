@@ -6,35 +6,63 @@
     <data>
 
         <variable
-            name="headerItem"
+            name="headerItemValue"
             type="com.cnexia.technicaltest.view.data.HeaderDataClass" />
 
         <variable
-            name="recyclerViewItem"
-            type="com.cnexia.technicaltest.view.data.RecyclerViewItem" />
+            name="vm"
+            type="com.cnexia.technicaltest.view.MainViewModel" />
     </data>
 
-    <androidx.appcompat.widget.LinearLayoutCompat
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:context=".view.MainActivity">
+        android:layout_height="match_parent">
 
-        <include
-            android:id="@+id/recyclerViewItemInclude"
-            layout="@layout/car_recycler_view_item"
-            app:recyclerViewItem="@{recyclerViewItem}"
-            />
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-<!--        <include-->
-<!--            android:id="@+id/header"-->
-<!--            layout="@layout/header_layout"-->
-<!--            app:headerItem="@{headerItem}" />-->
+            <RelativeLayout
+                android:id="@+id/header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical"
+                app:layout_scrollFlags="scroll">
 
-<!--        <include-->
-<!--            android:id="@+id/filters"-->
-<!--            layout="@layout/filters_layout" />-->
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    tools:context=".view.MainActivity">
 
+                    <include
+                        android:id="@+id/headerItem"
+                        layout="@layout/header_layout"
+                        app:headerItem="@{headerItemValue}" />
 
-    </androidx.appcompat.widget.LinearLayoutCompat>
+                    <include
+                        android:id="@+id/filters"
+                        layout="@layout/filters_layout" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
+            </RelativeLayout>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:recyclerViewAdapter="@{vm.carsAdapter}"
+            android:scrollbars="vertical"
+            android:setCarsRecyclerViewData="@{vm.currentCarsList}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            tools:itemCount="4"
+            tools:listitem="@layout/car_recycler_view_item" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
 </layout>

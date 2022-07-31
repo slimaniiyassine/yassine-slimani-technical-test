@@ -1,4 +1,4 @@
-package com.cnexia.technicaltest.di.repository
+package com.cnexia.technicaltest.repository
 
 import com.cnexia.technicaltest.network.ApiInterface
 import com.cnexia.technicaltest.network.CarRemoteModel

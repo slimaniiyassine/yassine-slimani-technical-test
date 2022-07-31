@@ -24,9 +24,11 @@ class MainActivity : DaggerAppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
-        binding.headerItem = getHeaderView()
-        binding.recyclerViewItem = getRecyclerViewItem()
+        binding.headerItemValue = getHeaderView()
+        binding.vm = mainActivityViewModel
+        binding.lifecycleOwner = this
         setContentView(binding.root)
+        mainActivityViewModel.getData()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -42,20 +44,8 @@ class MainActivity : DaggerAppCompatActivity() {
         )
     }
 
-    private fun getRecyclerViewItem(): RecyclerViewItem {
-        return RecyclerViewItem(
-            "Alpine roadster",
-            "120K",
-            "alpine_roadster",
-            5,
-//            listOf(
-//                "4 wheel drive",
-//                "Disk brake",
-//                "Good sound system"
-//            ),
-//            listOf("Bad direction")
-            emptyList(),
-            emptyList()
-        )
+    override fun onDestroy() {
+        super.onDestroy()
+        mainActivityViewModel.disposeComposite()
     }
 }

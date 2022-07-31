@@ -1,6 +1,5 @@
 package com.cnexia.technicaltest.view
 
-import android.R
 import android.content.ContentResolver
 import android.net.Uri
 import android.view.LayoutInflater
@@ -8,6 +7,9 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.databinding.BindingAdapter
+import androidx.recyclerview.widget.RecyclerView
+import com.cnexia.technicaltest.view.adapter.CarsAdapter
+import com.cnexia.technicaltest.view.data.RecyclerViewItem
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.pros_cons_item.view.*
 
@@ -26,9 +28,11 @@ fun setImageToImageViewFromDrawableWithName(imageView: ImageView, imageName: Str
 fun inflateData(layout: LinearLayout, data: List<String>) {
     val inflater = LayoutInflater.from(layout.context)
     for (entry in data) {
-        val myItem = inflater.inflate(com.cnexia.technicaltest.R.layout.pros_cons_item, layout, false)
-        myItem.prosConsTV.text = entry
-        layout.addView(myItem)
+        if(entry.isNotEmpty()) {
+            val myItem = inflater.inflate(com.cnexia.technicaltest.R.layout.pros_cons_item, layout, false)
+            myItem.prosConsTV.text = entry
+            layout.addView(myItem)
+        }
     }
 }
 
@@ -38,5 +42,16 @@ fun setViewVisibility(view: View, isVisible: Boolean) {
         view.visibility = View.VISIBLE
     } else {
         view.visibility = View.GONE
+    }
+}
+
+
+@BindingAdapter("android:setCarsRecyclerViewData", "android:recyclerViewAdapter")
+fun setCarsRecyclerViewData(view: RecyclerView, listCars: List<RecyclerViewItem>?, recyclerViewAdapter: CarsAdapter?) {
+    if(listCars!= null && listCars.isNotEmpty() && recyclerViewAdapter != null) {
+        recyclerViewAdapter.setLocationList(listCars)
+        if (view.adapter == null) {
+            view.adapter = recyclerViewAdapter
+        }
     }
 }
