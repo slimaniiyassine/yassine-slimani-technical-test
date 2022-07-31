@@ -1,4 +1,4 @@
-package com.cnexia.technicaltest.view
+package com.cnexia.technicaltest.view.adapter
 
 import android.content.ContentResolver
 import android.net.Uri
@@ -10,7 +10,6 @@ import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.cnexia.technicaltest.R
 import com.cnexia.technicaltest.utils.SimpleDividerItemDecoration
-import com.cnexia.technicaltest.view.adapter.CarsAdapter
 import com.cnexia.technicaltest.view.data.RecyclerViewItem
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.pros_cons_item.view.*
@@ -18,11 +17,11 @@ import kotlinx.android.synthetic.main.pros_cons_item.view.*
 
 @BindingAdapter("android:setImageToImageViewFromDrawableWithName")
 fun setImageToImageViewFromDrawableWithName(imageView: ImageView, imageName: String) {
-    val uri = Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE + "://" + imageView.context.getPackageName() + "/drawable/" + imageName);
+    val uri = Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE + "://" + imageView.context.packageName + "/drawable/" + imageName)
 
     Picasso.get()
         .load(uri)
-        .placeholder(com.cnexia.technicaltest.R.drawable.ic_placeholder)
+        .placeholder(R.drawable.ic_placeholder)
         .into(imageView)
 }
 
@@ -31,7 +30,7 @@ fun inflateData(layout: LinearLayout, data: List<String>) {
     val inflater = LayoutInflater.from(layout.context)
     for (entry in data) {
         if(entry.isNotEmpty()) {
-            val myItem = inflater.inflate(com.cnexia.technicaltest.R.layout.pros_cons_item, layout, false)
+            val myItem = inflater.inflate(R.layout.pros_cons_item, layout, false)
             myItem.prosConsTV.text = entry
             layout.addView(myItem)
         }
@@ -52,7 +51,7 @@ fun setViewVisibility(view: View, isVisible: Boolean) {
 fun setCarsRecyclerViewData(view: RecyclerView, listCars: List<RecyclerViewItem>?, recyclerViewAdapter: CarsAdapter?) {
     if(listCars!= null && listCars.isNotEmpty() && recyclerViewAdapter != null) {
         recyclerViewAdapter.setLocationList(listCars)
-        view.addItemDecoration(SimpleDividerItemDecoration(view.context, R.drawable.line_divider));
+        view.addItemDecoration(SimpleDividerItemDecoration(view.context, R.drawable.line_divider))
 
         if (view.adapter == null) {
             view.adapter = recyclerViewAdapter

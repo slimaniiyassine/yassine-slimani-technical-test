@@ -5,7 +5,6 @@ import android.view.Menu
 import androidx.lifecycle.ViewModelProvider
 import com.cnexia.technicaltest.databinding.ActivityMainBinding
 import com.cnexia.technicaltest.view.data.HeaderDataClass
-import com.cnexia.technicaltest.view.data.RecyclerViewItem
 import dagger.android.support.DaggerAppCompatActivity
 import javax.inject.Inject
 

@@ -18,6 +18,9 @@ class SimpleDividerItemDecoration(context: Context, @DrawableRes dividerRes: Int
         val childCount = parent.childCount
         for (i in 0 until childCount) {
             val child: View = parent.getChildAt(i)
+            if (i == 0) {
+                child.setPadding(0, 0, 0, 0)
+            }
             val params = child.layoutParams as RecyclerView.LayoutParams
             val top: Int = child.bottom + params.bottomMargin
             val bottom = top + mDivider.intrinsicHeight
