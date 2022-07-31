@@ -12,6 +12,7 @@ import javax.inject.Singleton
 @Singleton
 class CarRepository @Inject constructor(private val apiInterface: ApiInterface) {
 
+    //Proper error handling must be done
     fun getCars(): Single<List<CarRemoteModel>> {
         return apiInterface.getCars().subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())

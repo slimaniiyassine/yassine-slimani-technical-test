@@ -1,6 +1,7 @@
 package com.cnexia.technicaltest.repository
 
 import com.cnexia.technicaltest.network.CarRemoteModel
+import com.cnexia.technicaltest.utils.addKToPrice
 import com.cnexia.technicaltest.view.data.RecyclerViewItem
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -14,7 +15,7 @@ class CarsMapper @Inject constructor() {
             result.add(
                 RecyclerViewItem(
                     it.brand,
-                    it.customerPrice.toString() + "K",
+                    it.customerPrice.toString().addKToPrice(),
                     getImage(it.brandModel),
                     it.numberOfStarts,
                     it.prosList,

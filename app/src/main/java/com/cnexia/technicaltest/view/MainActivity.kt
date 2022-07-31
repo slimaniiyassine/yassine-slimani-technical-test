@@ -8,7 +8,7 @@ import com.cnexia.technicaltest.view.data.HeaderDataClass
 import dagger.android.support.DaggerAppCompatActivity
 import javax.inject.Inject
 
-
+//TODO: make filtering working
 class MainActivity : DaggerAppCompatActivity() {
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory

@@ -14,7 +14,6 @@ class MockClient(context: Context) : Interceptor {
     @Throws(IOException::class)
     override fun intercept(chain: Interceptor.Chain): Response {
         val url: HttpUrl = chain.request().url
-        Timber.d("TAG", "url=$url")
         return when (url.encodedPath) {
             "/api/cars" -> {
                 val response: String = getJsonDataFromAsset(context, "car_list.json")

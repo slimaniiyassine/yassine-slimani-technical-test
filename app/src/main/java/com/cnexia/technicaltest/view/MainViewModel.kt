@@ -16,7 +16,7 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class MainViewModel @Inject constructor(private val carRepository: CarRepository, val carsAdapter: CarsAdapter, val carsMapper: CarsMapper) : ViewModel() {
+class MainViewModel @Inject constructor(private val carRepository: CarRepository, val carsAdapter: CarsAdapter, private val carsMapper: CarsMapper) : ViewModel() {
     private val compositeDisposable = CompositeDisposable()
 
     private val _currentCarsList: MutableLiveData<List<RecyclerViewItem>> = MutableLiveData(emptyList())
