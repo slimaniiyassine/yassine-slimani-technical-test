@@ -1,12 +1,13 @@
 package com.cnexia.technicaltest.view
 
 import android.os.Bundle
+import android.view.Menu
 import androidx.lifecycle.ViewModelProvider
-import com.cnexia.technicaltest.R
 import com.cnexia.technicaltest.databinding.ActivityMainBinding
+import com.cnexia.technicaltest.view.data.HeaderDataClass
 import dagger.android.support.DaggerAppCompatActivity
-import timber.log.Timber
 import javax.inject.Inject
+
 
 class MainActivity : DaggerAppCompatActivity() {
     @Inject
@@ -22,16 +23,20 @@ class MainActivity : DaggerAppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
+        binding.headerItem = getHeaderView()
         setContentView(binding.root)
-        setContentView(R.layout.activity_main)
-        mainActivityViewModel.someKindOfInit()
-        mainActivityViewModel.getCars().subscribe(
-            {
-                Timber.d("Cars %d", it.size)
-            },
-            {
-               Timber.e(it)
-            }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(com.cnexia.technicaltest.R.menu.main_menu, menu)
+        return true
+    }
+
+    private fun getHeaderView(): HeaderDataClass {
+        return HeaderDataClass(
+            "tacoma",
+            "Tacoma 2021",
+            "Get your's now"
         )
     }
 }
