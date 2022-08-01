@@ -9,6 +9,7 @@
     <string name="main_activity_recycler_view_item_price">Price : 120K</string>
     <string name="main_activity_recycler_view_item_pros_title">Pros :</string>
     <string name="main_activity_recycler_view_item_cons_title">Cons :</string>
+    <string name="main_activity_menu_item_toast_message">This should be a menu to navigate or do something</string>
 
 
 

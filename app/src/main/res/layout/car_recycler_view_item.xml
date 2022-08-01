@@ -14,14 +14,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/light_gray"
-        android:paddingTop="25dp">
+        android:paddingTop="@dimen/recycler_view_item_padding_top">
 
         <ImageView
             android:id="@+id/recyclerViewItemIV"
-            android:layout_width="130dp"
-            android:layout_height="80dp"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="24dp"
+            android:layout_width="@dimen/recycler_view_item_image_view_width"
+            android:layout_height="@dimen/recycler_view_item_image_view_height"
+            android:layout_marginStart="@dimen/recycler_view_item_image_view_margin_start"
+            android:layout_marginTop="@dimen/recycler_view_item_image_view_margin_top"
             android:setImageToImageViewFromDrawableWithName="@{recyclerViewItem.image}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -29,26 +29,22 @@
 
         <TextView
             android:id="@+id/recyclerViewItemTitleTV"
+            style="@style/RecyclerViewItemTitleStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
+            android:layout_marginStart="@dimen/recycler_view_item_title_text_view_margin_start"
             android:text="@{recyclerViewItem.title}"
-            android:textColor="@color/dark_gray"
-            android:textSize="25sp"
-            android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/recyclerViewItemIV"
             app:layout_constraintTop_toTopOf="@+id/recyclerViewItemIV"
             tools:text="@string/main_activity_recycler_view_item_title" />
 
         <TextView
             android:id="@+id/recyclerViewItemPriceTV"
+            style="@style/RecyclerViewItemSubtitleStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="@dimen/recycler_view_item_subtitle_text_view_margin_top"
             android:text="@{recyclerViewItem.price}"
-            android:textColor="@color/dark_gray"
-            android:textSize="15sp"
-            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@+id/recyclerViewItemTitleTV"
             app:layout_constraintTop_toBottomOf="@+id/recyclerViewItemTitleTV"
             tools:text="@string/main_activity_recycler_view_item_price" />
@@ -58,7 +54,7 @@
             style="?android:attr/ratingBarStyleIndicator"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="@dimen/recycler_view_item_rating_view_margin_top"
             android:isIndicator="true"
             android:numStars="@{recyclerViewItem.numberOfStarts}"
             android:progressBackgroundTint="@color/orange"
@@ -75,15 +71,13 @@
 
         <TextView
             android:id="@+id/recyclerViewItemProsTitle"
+            style="@style/RecyclerViewItemPosConsTitleStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
+            android:layout_marginStart="@dimen/recycler_view_item_pros_cons_view_margin_start"
             android:orientation="vertical"
             android:setViewVisibility="@{recyclerViewItem.pros.size() != 0}"
             android:text="@string/main_activity_recycler_view_item_pros_title"
-            android:textColor="@color/dark_gray"
-            android:textSize="17sp"
-            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@+id/recyclerViewItemIV"
             app:layout_constraintTop_toBottomOf="@+id/recyclerViewItemRatingRB"
             tools:text="@string/main_activity_recycler_view_item_pros_title" />
@@ -100,16 +94,14 @@
 
         <TextView
             android:id="@+id/recyclerViewItemConsTitle"
+            style="@style/RecyclerViewItemPosConsTitleStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginStart="@dimen/recycler_view_item_pros_cons_view_margin_start"
+            android:layout_marginTop="@dimen/recycler_view_item_pros_cons_view_margin_top"
             android:orientation="vertical"
             android:setViewVisibility="@{recyclerViewItem.cons.size() != 0}"
             android:text="@string/main_activity_recycler_view_item_cons_title"
-            android:textColor="@color/dark_gray"
-            android:textSize="17sp"
-            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@+id/recyclerViewItemIV"
             app:layout_constraintTop_toBottomOf="@+id/recyclerViewItemProsLL"
             tools:text="@string/main_activity_recycler_view_item_cons_title" />
@@ -118,7 +110,7 @@
             android:id="@+id/recyclerViewItemConsLL"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
+            android:layout_marginBottom="@dimen/recycler_view_item_pros_cons_linear_view_margin_bottom"
             android:inflateData="@{recyclerViewItem.cons}"
             android:orientation="vertical"
             android:setViewVisibility="@{recyclerViewItem.cons.size() != 0}"

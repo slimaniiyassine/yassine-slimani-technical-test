@@ -2,14 +2,18 @@ package com.cnexia.technicaltest.view.adapter
 
 import android.content.ContentResolver
 import android.net.Uri
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
+import android.widget.EditText
 import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.cnexia.technicaltest.R
 import com.cnexia.technicaltest.utils.SimpleDividerItemDecoration
+import com.cnexia.technicaltest.view.MainViewModel
 import com.cnexia.technicaltest.view.data.RecyclerViewItem
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.pros_cons_item.view.*
@@ -30,9 +34,9 @@ fun inflateData(layout: LinearLayout, data: List<String>) {
     layout.removeAllViews()
     val inflater = LayoutInflater.from(layout.context)
     for (entry in data) {
-            val myItem = inflater.inflate(R.layout.pros_cons_item, layout, false)
-            myItem.prosConsTV.text = entry
-            layout.addView(myItem)
+        val myItem = inflater.inflate(R.layout.pros_cons_item, layout, false)
+        myItem.prosConsTV.text = entry
+        layout.addView(myItem)
     }
 }
 
@@ -48,7 +52,7 @@ fun setViewVisibility(view: View, isVisible: Boolean) {
 
 @BindingAdapter("android:setCarsRecyclerViewData", "android:recyclerViewAdapter")
 fun setCarsRecyclerViewData(view: RecyclerView, listCars: List<RecyclerViewItem>?, recyclerViewAdapter: CarsAdapter?) {
-    if(listCars!= null && recyclerViewAdapter != null) {
+    if (listCars != null && recyclerViewAdapter != null) {
         recyclerViewAdapter.setLocationList(listCars)
         view.addItemDecoration(SimpleDividerItemDecoration(view.context, R.drawable.line_divider))
 
@@ -56,4 +60,23 @@ fun setCarsRecyclerViewData(view: RecyclerView, listCars: List<RecyclerViewItem>
             view.adapter = recyclerViewAdapter
         }
     }
+}
+
+@BindingAdapter("android:setOnTextChangeListener", "android:filterType")
+fun setOnTextChangeListener(editText: EditText, mainActivityViewModel: MainViewModel, filterType: FilterType) {
+    editText.addTextChangedListener(object : TextWatcher {
+        override fun afterTextChanged(s: Editable?) {
+            if (filterType == FilterType.MAKE) {
+                mainActivityViewModel.filterCarsByMake(s.toString())
+            } else {
+                mainActivityViewModel.filterCarsByModel(s.toString())
+            }
+        }
+
+        override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+        }
+
+        override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+        }
+    })
 }

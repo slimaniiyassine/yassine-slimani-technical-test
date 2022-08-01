@@ -17,7 +17,7 @@
         <ImageView
             android:id="@+id/headerIV"
             android:layout_width="match_parent"
-            android:layout_height="250dp"
+            android:layout_height="@dimen/header_image_height"
             android:scaleType="centerCrop"
             android:setImageToImageViewFromDrawableWithName="@{headerItem.image}"
             app:layout_constraintEnd_toEndOf="parent"
@@ -27,28 +27,24 @@
 
         <TextView
             android:id="@+id/headerTitleTV"
+            style="@style/HeaderTitleStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginBottom="32dp"
+            android:layout_marginStart="@dimen/header_text_margin"
+            android:layout_marginBottom="@dimen/header_text_margin"
             android:text="@{headerItem.title}"
-            android:textColor="@android:color/white"
-            android:textSize="34sp"
-            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/headerSubTitleTV"
             app:layout_constraintStart_toStartOf="parent"
             tools:text="@string/main_activity_header_title" />
 
         <TextView
             android:id="@+id/headerSubTitleTV"
+            style="@style/HeaderSubtitleStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginBottom="32dp"
+            android:layout_marginStart="@dimen/header_text_margin"
+            android:layout_marginBottom="@dimen/header_text_margin"
             android:text="@{headerItem.subTitle}"
-            android:textColor="@android:color/white"
-            android:textSize="24sp"
-            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/headerIV"
             app:layout_constraintStart_toStartOf="parent"
             tools:text="@string/main_activity_header_subtitle" />

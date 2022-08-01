@@ -1,4 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="line">4px</dimen>
+
+    <!-- Recycler View Item -->
+    <dimen name="recycler_view_item_padding_top">25dp</dimen>
+    <dimen name="recycler_view_item_image_view_width">130dp</dimen>
+    <dimen name="recycler_view_item_image_view_height">80dp</dimen>
+    <dimen name="recycler_view_item_image_view_margin_start">24dp</dimen>
+    <dimen name="recycler_view_item_image_view_margin_top">24dp</dimen>
+    <dimen name="recycler_view_item_title_text_view_margin_start">24dp</dimen>
+    <dimen name="recycler_view_item_subtitle_text_view_margin_top">4dp</dimen>
+    <dimen name="recycler_view_item_rating_view_margin_top">8dp</dimen>
+    <dimen name="recycler_view_item_pros_cons_view_margin_start">32dp</dimen>
+    <dimen name="recycler_view_item_pros_cons_view_margin_top">16dp</dimen>
+    <dimen name="recycler_view_item_pros_cons_linear_view_margin_bottom">8dp</dimen>
+
+    <!-- Header-->
+    <dimen name="header_image_height">250dp</dimen>
+    <dimen name="header_text_margin">32dp</dimen>
+
+    <!-- Pros/Cons item-->
+    <dimen name="pros_cons_dot_size">8dp</dimen>
+    <dimen name="pros_cons_dot_margin_start">8dp</dimen>
+    <dimen name="pros_cons_dot_margin_top">16dp</dimen>
+    <dimen name="pros_cons_title_margin_start">8dp</dimen>
+
+    <!-- Filters-->
+    <dimen name="filter_card_view_margin_top">18dp</dimen>
+    <dimen name="filter_card_view_margin_start">8dp</dimen>
+    <dimen name="filter_card_view_margin_end">8dp</dimen>
+    <dimen name="filter_card_view_margin_bottom">30dp</dimen>
+    <dimen name="filter_card_view_elevation">8dp</dimen>
+    <dimen name="filter_card_view_corner_radius">18dp</dimen>
+    <dimen name="filter_title_margin">24dp</dimen>
+    <dimen name="filter_edit_text_margin_top">16dp</dimen>
+    <dimen name="filter_edit_text_margin_end">24dp</dimen>
+    <dimen name="filter_edit_text_margin_bottom">24dp</dimen>
+    <dimen name="filter_edit_text_margin_padding">5dp</dimen>
 </resources>

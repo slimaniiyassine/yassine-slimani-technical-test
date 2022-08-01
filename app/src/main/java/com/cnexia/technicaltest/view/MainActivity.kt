@@ -1,10 +1,11 @@
 package com.cnexia.technicaltest.view
 
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import android.view.Menu
+import android.view.MenuItem
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
+import com.cnexia.technicaltest.R
 import com.cnexia.technicaltest.databinding.ActivityMainBinding
 import com.cnexia.technicaltest.view.data.HeaderDataClass
 import dagger.android.support.DaggerAppCompatActivity
@@ -30,38 +31,21 @@ class MainActivity : DaggerAppCompatActivity() {
         binding.lifecycleOwner = this
         setContentView(binding.root)
         mainActivityViewModel.getData()
-        addFilterListeners()
-    }
-
-    private fun addFilterListeners() {
-        binding.filters.filterLayoutMakeET.addTextChangedListener(object : TextWatcher {
-            override fun afterTextChanged(s: Editable?) {
-                mainActivityViewModel.filterCarsByMake(s.toString())
-            }
-
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-            }
-
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-            }
-        })
-
-        binding.filters.filterLayoutModelET.addTextChangedListener(object : TextWatcher {
-            override fun afterTextChanged(s: Editable?) {
-                mainActivityViewModel.filterCarsByModel(s.toString())
-            }
-
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-            }
-
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-            }
-        })
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(com.cnexia.technicaltest.R.menu.main_menu, menu)
+        menuInflater.inflate(R.menu.main_menu, menu)
         return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.action_menu -> {
+                Toast.makeText(this, R.string.main_activity_menu_item_toast_message, Toast.LENGTH_LONG).show()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 
     private fun getHeaderView(): HeaderDataClass {

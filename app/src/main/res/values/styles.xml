@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Recycler View Item -->
+    <style name="RecyclerViewItemTitleStyle" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/dark_gray</item>
+        <item name="android:textSize">25sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="RecyclerViewItemSubtitleStyle" parent="RecyclerViewItemTitleStyle">
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="RecyclerViewItemPosConsTitleStyle" parent="RecyclerViewItemTitleStyle">
+        <item name="android:textSize">17sp</item>
+    </style>
+
+    <!-- Header-->
+    <style name="HeaderTitleStyle" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">34sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="HeaderSubtitleStyle" parent="HeaderTitleStyle">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- Pros/Cons item-->
+    <style name="ProdConsTitleTextStyle" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">11sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- Filters-->
+    <style name="FiltersTitleStyle" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="FiltersEditTextStyle" parent="TextAppearance.AppCompat">
+        <item name="android:inputType">text</item>
+        <item name="android:textColorHint">@color/dark_gray</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+</resources>

@@ -9,22 +9,20 @@
 
         <ImageView
             android:id="@+id/prosConsDotIV"
-            android:layout_width="10dp"
-            android:layout_height="10dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
+            android:layout_width="@dimen/pros_cons_dot_size"
+            android:layout_height="@dimen/pros_cons_dot_size"
+            android:layout_marginStart="@dimen/pros_cons_dot_margin_start"
+            android:layout_marginTop="@dimen/pros_cons_dot_margin_top"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_circle" />
 
         <TextView
             android:id="@+id/prosConsTV"
+            style="@style/ProdConsTitleTextStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:textColor="@color/black"
-            android:textSize="11sp"
-            android:textStyle="bold"
+            android:layout_marginStart="@dimen/pros_cons_title_margin_start"
             app:layout_constraintBottom_toBottomOf="@+id/prosConsDotIV"
             app:layout_constraintStart_toEndOf="@+id/prosConsDotIV"
             app:layout_constraintTop_toTopOf="@+id/prosConsDotIV"
