@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="recyclerViewItem"
+            type="com.cnexia.technicaltest.view.data.RecyclerViewItem" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/light_gray"
+        android:paddingTop="@dimen/recycler_view_item_padding_top">
+
+        <ImageView
+            android:id="@+id/recyclerViewItemIV"
+            android:layout_width="@dimen/recycler_view_item_image_view_width"
+            android:layout_height="@dimen/recycler_view_item_image_view_height"
+            android:layout_marginStart="@dimen/recycler_view_item_image_view_margin_start"
+            android:layout_marginTop="@dimen/recycler_view_item_image_view_margin_top"
+            android:setImageToImageViewFromDrawableWithName="@{recyclerViewItem.image}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/alpine_roadster" />
+
+        <TextView
+            android:id="@+id/recyclerViewItemTitleTV"
+            style="@style/RecyclerViewItemTitleStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/recycler_view_item_title_text_view_margin_start"
+            android:text="@{recyclerViewItem.title}"
+            app:layout_constraintStart_toEndOf="@+id/recyclerViewItemIV"
+            app:layout_constraintTop_toTopOf="@+id/recyclerViewItemIV"
+            tools:text="@string/main_activity_recycler_view_item_title" />
+
+        <TextView
+            android:id="@+id/recyclerViewItemPriceTV"
+            style="@style/RecyclerViewItemSubtitleStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/recycler_view_item_subtitle_text_view_margin_top"
+            android:text="@{recyclerViewItem.price}"
+            app:layout_constraintStart_toStartOf="@+id/recyclerViewItemTitleTV"
+            app:layout_constraintTop_toBottomOf="@+id/recyclerViewItemTitleTV"
+            tools:text="@string/main_activity_recycler_view_item_price" />
+
+        <RatingBar
+            android:id="@+id/recyclerViewItemRatingRB"
+            style="?android:attr/ratingBarStyleIndicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/recycler_view_item_rating_view_margin_top"
+            android:isIndicator="true"
+            android:numStars="@{recyclerViewItem.numberOfStarts}"
+            android:progressBackgroundTint="@color/orange"
+            android:progressTint="@color/orange"
+            android:rating="@{recyclerViewItem.numberOfStarts}"
+            android:scaleX=".5"
+            android:scaleY=".5"
+            android:transformPivotX="0dp"
+            android:transformPivotY="0dp"
+            app:layout_constraintStart_toStartOf="@+id/recyclerViewItemPriceTV"
+            app:layout_constraintTop_toBottomOf="@+id/recyclerViewItemPriceTV"
+            tools:numStars="5"
+            tools:rating="5" />
+
+        <TextView
+            android:id="@+id/recyclerViewItemProsTitle"
+            style="@style/RecyclerViewItemPosConsTitleStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/recycler_view_item_pros_cons_view_margin_start"
+            android:orientation="vertical"
+            android:setViewVisibility="@{recyclerViewItem.pros.size() != 0}"
+            android:text="@string/main_activity_recycler_view_item_pros_title"
+            app:layout_constraintStart_toStartOf="@+id/recyclerViewItemIV"
+            app:layout_constraintTop_toBottomOf="@+id/recyclerViewItemRatingRB"
+            tools:text="@string/main_activity_recycler_view_item_pros_title" />
+
+        <LinearLayout
+            android:id="@+id/recyclerViewItemProsLL"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inflateData="@{recyclerViewItem.pros}"
+            android:orientation="vertical"
+            android:setViewVisibility="@{recyclerViewItem.pros.size() != 0}"
+            app:layout_constraintStart_toStartOf="@+id/recyclerViewItemProsTitle"
+            app:layout_constraintTop_toBottomOf="@+id/recyclerViewItemProsTitle" />
+
+        <TextView
+            android:id="@+id/recyclerViewItemConsTitle"
+            style="@style/RecyclerViewItemPosConsTitleStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/recycler_view_item_pros_cons_view_margin_start"
+            android:layout_marginTop="@dimen/recycler_view_item_pros_cons_view_margin_top"
+            android:orientation="vertical"
+            android:setViewVisibility="@{recyclerViewItem.cons.size() != 0}"
+            android:text="@string/main_activity_recycler_view_item_cons_title"
+            app:layout_constraintStart_toStartOf="@+id/recyclerViewItemIV"
+            app:layout_constraintTop_toBottomOf="@+id/recyclerViewItemProsLL"
+            tools:text="@string/main_activity_recycler_view_item_cons_title" />
+
+        <LinearLayout
+            android:id="@+id/recyclerViewItemConsLL"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/recycler_view_item_pros_cons_linear_view_margin_bottom"
+            android:inflateData="@{recyclerViewItem.cons}"
+            android:orientation="vertical"
+            android:setViewVisibility="@{recyclerViewItem.cons.size() != 0}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/recyclerViewItemConsTitle"
+            app:layout_constraintTop_toBottomOf="@+id/recyclerViewItemConsTitle" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

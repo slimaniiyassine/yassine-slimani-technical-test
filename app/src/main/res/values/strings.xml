@@ -1,3 +1,16 @@
 <resources>
-    <string name="app_name">Yassine-slimani-technical-test</string>
+    <string name="app_name">GUIDOMIA</string>
+    <string name="main_activity_header_title">Tacoma 2021</string>
+    <string name="main_activity_header_subtitle">Get your\'s now</string>
+    <string name="main_activity_filters_title">Filters</string>
+    <string name="main_activity_filters_make_hint">Any make</string>
+    <string name="main_activity_filters_model_hint">Any model</string>
+    <string name="main_activity_recycler_view_item_title">Alpine roadster</string>
+    <string name="main_activity_recycler_view_item_price">Price : 120K</string>
+    <string name="main_activity_recycler_view_item_pros_title">Pros :</string>
+    <string name="main_activity_recycler_view_item_cons_title">Cons :</string>
+    <string name="main_activity_menu_item_toast_message">This should be a menu to navigate or do something</string>
+
+
+
 </resources>

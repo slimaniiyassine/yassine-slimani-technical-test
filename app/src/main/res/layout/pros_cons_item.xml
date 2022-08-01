@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/prosConsDotIV"
+            android:layout_width="@dimen/pros_cons_dot_size"
+            android:layout_height="@dimen/pros_cons_dot_size"
+            android:layout_marginStart="@dimen/pros_cons_dot_margin_start"
+            android:layout_marginTop="@dimen/pros_cons_dot_margin_top"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_circle" />
+
+        <TextView
+            android:id="@+id/prosConsTV"
+            style="@style/ProdConsTitleTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/pros_cons_title_margin_start"
+            app:layout_constraintBottom_toBottomOf="@+id/prosConsDotIV"
+            app:layout_constraintStart_toEndOf="@+id/prosConsDotIV"
+            app:layout_constraintTop_toTopOf="@+id/prosConsDotIV"
+            tools:text="4 wheel drive" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
